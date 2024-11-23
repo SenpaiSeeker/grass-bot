@@ -39,7 +39,7 @@ async def main():
     while True:
         proxies = await fetch_proxies(proxy_api_url)
         save_proxies("proxy.txt", proxies)
-        await asyncio.sleep(60 * 60)
+        await asyncio.sleep(60 * 60 * 5)
 
 
 if __name__ == "__main__":
