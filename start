@@ -2,7 +2,8 @@
 
 function auto() {
     python3 auto_proxy.py
-    echo -e "2oEErIJMp0gNXJVfshOf7PtnjUx" | python3 grass_desktop.py &
+    TOKEN=$(cat token.txt)
+    echo -e "$TOKEN" | python3 grass_desktop.py &
     GRASS_PID=$!
     echo "grass_desktop.py running with PID: $GRASS_PID"
 }
