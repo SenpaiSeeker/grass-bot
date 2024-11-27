@@ -24,7 +24,6 @@ async def fetch_proxies(api_url):
 def save_proxies(proxy_file, proxies):
     """Menyimpan proxy ke file."""
     try:
-        # os.system(f"rm -rf {proxy_file}")
         with open(proxy_file, "w") as file:
             file.writelines([proxy + "\n" for proxy in proxies])
         logger.info(f"Saved {len(proxies)} proxies to {proxy_file}.")
