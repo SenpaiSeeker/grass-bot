@@ -5,12 +5,13 @@ function auto() {
     echo -e "2oEErIJMp0gNXJVfshOf7PtnjUx" | python3 grass_desktop.py &
     GRASS_PID=$!
     echo "grass_desktop.py running with PID: $GRASS_PID"
+    sleep 10
 }
 
 function stop_grass() {
     if [ ! -z "$GRASS_PID" ]; then
         echo "Stopping grass_desktop.py with PID: $GRASS_PID"
-        kill -SIGSTOP $GRASS_PID
+        kill -9 $GRASS_PID
     else
         echo "No grass_desktop.py process found to stop."
     fi
