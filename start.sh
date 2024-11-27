@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function auto() {
     python3 auto_proxy.py
     TOKEN=$(cat token.txt)
