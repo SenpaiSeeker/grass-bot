@@ -5,7 +5,6 @@ function auto() {
     echo -e "2oEErIJMp0gNXJVfshOf7PtnjUx" | python3 grass_desktop.py &
     GRASS_PID=$!
     echo "grass_desktop.py running with PID: $GRASS_PID"
-    sleep 10
 }
 
 function stop_grass() {
@@ -20,6 +19,7 @@ function stop_grass() {
 while true; do
     echo "Starting auto process..."
     auto
-    sleep 3600
+    sleep 10
     stop_grass
+    sleep 15
 done
