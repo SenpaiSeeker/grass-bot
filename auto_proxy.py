@@ -38,6 +38,7 @@ async def main():
     proxies = await fetch_proxies(proxy_api_url)
     save_proxies("proxy.txt", proxies)
 
+
 if __name__ == "__main__":
     try:
         asyncio.run(main())
