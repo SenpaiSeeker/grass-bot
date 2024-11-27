@@ -35,11 +35,8 @@ async def main():
     proxy_api_url = (
         "https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_proxies&proxy_format=protocolipport&format=text"
     )
-    while True:
-        proxies = await fetch_proxies(proxy_api_url)
-        save_proxies("proxy.txt", proxies)
-        await asyncio.sleep(60 * 60 * 5)
-
+    proxies = await fetch_proxies(proxy_api_url)
+    save_proxies("proxy.txt", proxies)
 
 if __name__ == "__main__":
     try:
