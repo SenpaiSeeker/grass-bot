@@ -1,10 +1,9 @@
 import aiohttp
 from loguru import logger
 
-
 class ProxyFetcher:
-    def __init__(self, proxy_file):
-        self.proxy_url = "https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_proxies&proxy_format=protocolipport&format=text"
+    def __init__(self, proxy_url, proxy_file):
+        self.proxy_url = proxy_url
         self.proxy_file = proxy_file
 
     async def fetch_proxies(self):
@@ -35,5 +34,8 @@ class ProxyFetcher:
         self.save_proxies(proxies)
 
 
-fetcher = ProxyFetcher("proxy.txt")
-await fetcher.run()
+proxy_fetcher = ProxyFetcher(
+    proxy_url="https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_proxies&proxy_format=protocolipport&format=text",
+    proxy_file="proxy.txt"
+)
+await proxy_fetcher.run()
