@@ -35,8 +35,8 @@ class ProxyFetcher:
         self.save_proxies(proxies)
 
 
-proxy_fetcher = ProxyFetcher(
+proxy_fetcher = await ProxyFetcher(
     proxy_url="https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_proxies&proxy_format=protocolipport&format=text",
     proxy_file="proxy.txt",
 )
-await proxy_fetcher.run()
+proxy_fetcher.run()
