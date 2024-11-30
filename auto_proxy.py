@@ -1,6 +1,7 @@
 import aiohttp
 from loguru import logger
 
+
 class ProxyFetcher:
     def __init__(self, proxy_url, proxy_file):
         self.proxy_url = proxy_url
@@ -36,6 +37,6 @@ class ProxyFetcher:
 
 proxy_fetcher = ProxyFetcher(
     proxy_url="https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_proxies&proxy_format=protocolipport&format=text",
-    proxy_file="proxy.txt"
+    proxy_file="proxy.txt",
 )
 proxy_fetcher.run()
