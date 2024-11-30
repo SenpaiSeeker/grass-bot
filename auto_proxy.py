@@ -39,4 +39,4 @@ proxy_fetcher = ProxyFetcher(
     proxy_url="https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_proxies&proxy_format=protocolipport&format=text",
     proxy_file="proxy.txt",
 )
-proxy_fetcher.run()
+await proxy_fetcher.run()
