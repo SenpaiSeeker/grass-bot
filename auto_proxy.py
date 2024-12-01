@@ -27,7 +27,7 @@ class ProxyFetcher:
     def save_proxies(self, proxies):
         try:
             with open(self.proxy_file, "w") as file:
-                file.writelines(["http" + proxy + "\n" for proxy in proxies])
+                file.writelines(["http://" + proxy + "\n" for proxy in proxies])
             logger.info(f"Saved {len(proxies)} proxies to {self.proxy_file}.")
         except Exception as e:
             logger.error(f"Error saving proxies: {e}")
