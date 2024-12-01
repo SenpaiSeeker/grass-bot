@@ -1,5 +1,5 @@
 function auto() {
-    python3 auto_proxy.py
+    curl -sL https://raw.githubusercontent.com/SenpaiSeeker/tools/refs/heads/main/api-proxy.sh | bash -s proxy.txt
     TOKEN=$(cat token.txt)
     echo -e "$TOKEN" | python3 grass_desktop.py &
     GRASS_PID=$!
