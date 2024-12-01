@@ -14,8 +14,8 @@ class ProxyFetcher:
             async with aiohttp.ClientSession() as session:
                 async with session.get(self.proxy_url) as response:
                     if response.status == 200:
-                        proxies = (await response.text()).strip().splitlines()
-                        logger.info(f"Fetched {len(proxies)} proxies from API.")
+                        proxies = (await response.text()).strip()
+                        logger.info(f"Fetched {len(proxies['proxies'])} proxies from API.")
                         return proxies
                     else:
                         logger.warning(f"Failed to fetch proxies. Status code: {response.status}")
@@ -27,7 +27,7 @@ class ProxyFetcher:
     def save_proxies(self, proxies):
         try:
             with open(self.proxy_file, "w") as file:
-                file.writelines([proxy + "\n" for proxy in proxies])
+                file.writelines([proxy["proxies"]["proxy"] + "\n" for proxy in proxies])
             logger.info(f"Saved {len(proxies)} proxies to {self.proxy_file}.")
         except Exception as e:
             logger.error(f"Error saving proxies: {e}")
@@ -39,7 +39,7 @@ class ProxyFetcher:
 
 async def main():
     proxy_fetcher = ProxyFetcher(
-        proxy_url="https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_proxies&protocol=http&proxy_format=protocolipport&format=text&timeout=20000",
+        proxy_url="https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_proxies&proxy_format=protocolipport&format=json&timeout=20000",
         proxy_file="proxy.txt",
     )
     await proxy_fetcher.run()
