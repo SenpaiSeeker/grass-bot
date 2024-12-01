@@ -39,7 +39,7 @@ class ProxyFetcher:
 
 async def main():
     proxy_fetcher = ProxyFetcher(
-        proxy_url="https://api.asocks.com/api/v1/proxy-list/iDB45noJ3siyYatKU5cPxqWQ1Gf4anUc.txt?type%5B0%5D=residential",
+        proxy_url="https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_proxies&proxy_format=protocolipport&format=text",
         proxy_file="proxy.txt",
     )
     await proxy_fetcher.run()
