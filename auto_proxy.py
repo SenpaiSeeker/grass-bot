@@ -43,9 +43,8 @@ class ProxyFetcher:
 async def main():
     proxy_fetcher = ProxyFetcher(
         proxy_urls=[
-            "https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_proxies&proxy_format=protocolipport&format=text",
-            "https://raw.githubusercontent.com/dpangestuw/Free-Proxy/refs/heads/main/All_proxies.txt",
-            "https://raw.githubusercontent.com/monosans/proxy-list/refs/heads/main/proxies/all.txt",
+            "https://api.proxyscrape.com/v4/free-proxy-list/get?request=display_proxies&proxy_format=protocolipport&format=text"
+            
         ],
         proxy_file="proxy.txt",
     )
